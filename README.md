@@ -13,4 +13,4 @@ Install pygame: pip install pygame on console
 
 Download files
 
-Run tetris
+Run tetris on pycharm 
