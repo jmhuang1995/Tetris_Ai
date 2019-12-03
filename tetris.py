@@ -151,22 +151,6 @@ class TetrisApp(object):
                                      (self.rlim + 1, 0), (self.rlim + 1, self.height - 1))
                     self.disp_msg("Next:", (self.rlim + CELL_SIZE, 2))
                     self.disp_msg("Score: %d" % self.score, (self.rlim + CELL_SIZE, CELL_SIZE * 5))
-                    if self.player_ai and self.runner:
-                        from halgo import holes_amount, blocks_above_hole_amount, gaps_amount, max_board_height, block_avgerage_height, blocks_amount
-                        chrom = self.runner.population[self.runner.current_chromosome]
-                        self.disp_msg("Discontentment: %d" % -self.player_ai.util(self.board),
-                                      (self.rlim + CELL_SIZE, CELL_SIZE * 10))
-                        self.disp_msg("Generation: %s" % self.runner.current_generation,
-                                      (self.rlim + CELL_SIZE, CELL_SIZE * 11))
-                        self.disp_msg("Chromosome: %d" % chrom.name, (self.rlim + CELL_SIZE, CELL_SIZE * 12))
-                        self.disp_msg("\n  %s: %s\n  %s: %s\n  %s: %s\n  %s: %s\n  %s: %s\n  %s: %s" % (
-                            "num_holes", chrom.halgo[holes_amount],
-                            "num_blocks_above_holes", chrom.halgo[blocks_above_hole_amount],
-                            "num_gaps", chrom.halgo[gaps_amount],
-                            "max_height", chrom.halgo[max_board_height],
-                            "avg_height", chrom.halgo[block_avgerage_height],
-                            "num_blocks", chrom.halgo[blocks_amount],
-                        ), (self.rlim + CELL_SIZE, CELL_SIZE * 12.1))
                     self.draw_matrix(self.bground_grid, (0, 0))
                     self.draw_matrix(self.board, (0, 0))
                     self.draw_matrix(self.block, (self.block_x, self.block_y))
